@@ -1,4 +1,4 @@
-package progetto_siw.progetto_siw;
+package it.uniroma3.siw.progetto_siw;
 
 /**
  * Hello world!
