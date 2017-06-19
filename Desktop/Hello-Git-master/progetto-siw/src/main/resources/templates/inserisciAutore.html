@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head>
+<title>Nuovo Autore</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Galleria d'arte" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style2.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- animation-effect -->
+<link href="../css/animate.min.css" rel="stylesheet"/>
+<script src="../js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='//fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smooth-scrolling -->
+</head>
+<body>
+  <!-- banner -->
+  	<div class="banner-figures">
+  		<div class="banner">
+  			<div class="container banner-drop">
+  				<div class="header">
+  					<div class="header-left">
+
+  					</div>
+  					<div class="header-right">
+  						<nav>
+  						  <ul>
+  							<li class="active">
+  								<a href="/index"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>Home</span></a>
+  							</li>
+  							<li>
+  								<a href="/login"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i><span>Log out</span></a>
+  							</li>
+  							<li>
+  								<a href="/listaAutore"><i class="glyphicon glyphicon-text-size" aria-hidden="true"></i><span>Autori</span></a>
+  							</li>
+  							<li>
+  								<a href="/listaOpere"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i><span>Opere</span></a>
+  							</li>
+
+  						  </ul>
+  						</nav>
+  						<div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
+  					</div>
+  					<div class="clearfix"> </div>
+  				</div>
+  				<div class="logo animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+  					<h1><a href=""><span>Benvenuto</span>Inserisci Nuovo Autore</a></h1>
+  				</div>
+          <div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+
+  				</div>
+  			</div>
+  		</div>
+  			<script>
+  				(function($){
+  				  $(".menu-icon").on("click", function(){
+  						$(this).toggleClass("open");
+  						$(".container").toggleClass("nav-open");
+  						$("nav ul li").toggleClass("animate");
+  				  });
+
+  				})(jQuery);
+  			</script>
+  	</div>
+    <div class="footer-copy animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+  		<div class="container">
+    <form action="#" th:action="@{/autore}" th:object="${autore}" method="post">
+            <div>
+                <div>
+                    <span th:text="#{label.nome}"><h3>Nome*: </h3></span>
+                    <span><input type="text" th:field="*{nome}" /></span>
+                    <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
+                </div>
+                <div>
+                    <span th:text="#{label.cognome}"><h3>Cognome*: </h3></span>
+                    <span><input type="text" th:field="*{cognome}" /></span>
+                    <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
+                </div>
+                <div>
+                    <span th:text="#{label.nazionalità}"><h3>Nazionalità*: </h3></span>
+                    <span><input type="text" th:field="*{nazionalità}" /></span>
+                    <span th:if="${#fields.hasErrors('nazionalità')}" th:text="#{label.nazionalità}">Campo Obbligatorio</span>
+                </div>
+                <div>
+                    <span th:text="#{label.dataNascita}"><h3>Data Nascita*: </h3></span>
+                    <span><input type="text" th:field="*{dataNascita}" placeholder="01/01/1900" /></span>
+                    <span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.dataNascita}">Campo Obbligatorio</span>
+                </div>
+                <div>
+                    <span th:text="#{label.dataMorte}"><h3>Data Morte: </h3></span>
+                    <span><input type="text" th:field="*{dataMorte}" placeholder="01/01/1900"/></span>
+                    <span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.dataMorte}"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn"><span>Aggiungi</span></button>
+                    <button type="submit" class="btn"><span>Cancella</span></button>
+                    </div>
+                    </div>
+
+        </form>
+        </div>
+        </div>
+
+    <div class="footer-copy animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+  		<div class="container">
+  			<div class="footer-copy-grids">
+  				<div class="col-md-3 footer-copy-grid">
+            <div class="container">
+  			<p>© 2017 Scriviamoci qualcosa. All rights reserved | Andrea Giulia</p>
+  		</div>
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+</html>
