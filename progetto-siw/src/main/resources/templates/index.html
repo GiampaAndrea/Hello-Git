@@ -1,18 +1,198 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Home page</title>
+<title>Galleria d'arte</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Galleria d'arte" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- animation-effect -->
+<link href="../css/animate.min.css" rel="stylesheet"/>
+<script src="../js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='//fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smooth-scrolling -->
 </head>
 <body>
-	<div>
-		<a href="">Inserisci una nuova opera</a>
+<!-- banner -->
+	<div class="banner-figures">
+		<div class="banner">
+			<div class="container banner-drop">
+				<div class="header">
+					<div class="header-left">
+						<ul>
+							<li class="animated wow fadeInLeftBig" data-wow-duration="1200ms" data-wow-delay="800ms"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Posizione </li>
+							<li class="animated wow fadeInLeftBig" data-wow-duration="1200ms" data-wow-delay="900ms"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Numero Telefono</li>
+							<li class="animated wow fadeInLeftBig" data-wow-duration="1200ms" data-wow-delay="1000ms"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:info@example.com">info@example.com</a></li>
+						</ul>
+					</div>
+					<div class="header-right">
+						<nav>
+						  <ul>
+							<li class="active">
+								<a href="/index"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>Home</span></a>
+							</li>
+							<li>
+								<a href="/login"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i><span>Login</span></a>
+							</li>
+							<li>
+								<a href="/listaAutore"><i class="glyphicon glyphicon-text-size" aria-hidden="true"></i><span>Autori</span></a>
+							</li>
+							<li>
+								<a href="/listaOpere"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i><span>Opere</span></a>
+							</li>
+
+						  </ul>
+						</nav>
+						<div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="logo animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<h1><a href="indexMigliore.html"><span>Nome simpatico</span>Galleria d'arte</a></h1>
+				</div>
+				<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+
+				</div>
+			</div>
+		</div>
+			<script>
+				(function($){
+				  $(".menu-icon").on("click", function(){
+						$(this).toggleClass("open");
+						$(".container").toggleClass("nav-open");
+						$("nav ul li").toggleClass("animate");
+				  });
+
+				})(jQuery);
+			</script>
 	</div>
-	<div>
-		<a href="">Cancella una nuova opera</a>
+
+<!-- banner-bottom -->
+	<div class="banner-bottom animated wow lightSpeedIn" data-wow-duration="1500ms" data-wow-delay="800ms">
+		<ul id="flexiselDemo1">
+			<li>
+				<div class="item item-sub">
+					<div class="item1">
+						<i class="glyphicon" aria-hidden="true"></i>
+						<h3>Opera</h3>
+					</div>
+					<div class="p-mask">
+						<h4>Opera</h4>
+						<p>Piccola descrizione dell'opera</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item item-sub1">
+					<div class="item1">
+						<i class="glyphicon" aria-hidden="true"></i>
+						<h3>Opera</h3>
+					</div>
+					<div class="p-mask">
+						<h4>Opera</h4>
+						<p>Piccola descrizione dell'opera</p>
+						<div class="social-icons">
+
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item item-sub2">
+					<div class="item1">
+						<i class="glyphicon" aria-hidden="true"></i>
+						<h3>Opera</h3>
+					</div>
+					<div class="p-mask">
+						<h4>Opera</h4>
+						<p>Piccola descrizione dell'opera</p>
+						<div class="social-icons">
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="item item-sub3">
+					<div class="item1">
+						<i class="glyphicon" aria-hidden="true"></i>
+						<h3>Opera</h3>
+					</div>
+					<div class="p-mask">
+						<h4>Opera</h4>
+						<p>Piccola descrizione dell'opera</p>
+						<div class="social-icons">
+
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+			<script type="text/javascript">
+				$(window).load(function() {
+				$("#flexiselDemo1").flexisel({
+					visibleItems: 4,
+					animationSpeed: 1000,
+					autoPlay: true,
+					autoPlaySpeed: 3000,
+					pauseOnHover: true,
+					enableResponsiveBreakpoints: true,
+					responsiveBreakpoints: {
+						portrait: {
+							changePoint:480,
+							visibleItems: 1
+						},
+						landscape: {
+							changePoint:640,
+							visibleItems: 2
+						},
+						tablet: {
+							changePoint:768,
+							visibleItems: 3
+						}
+					}
+				});
+
+			 });
+			</script>
+			<script type="text/javascript" src="../js/jquery.flexisel.js"></script>
 	</div>
-	<div>
-		<a href="/artisti">Artisti</a>
-	</div>
+  <!-- //footer-top -->
+<!-- footer -->
+	<div class="footer-copy animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+		<div class="container">
+			<div class="footer-copy-grids">
+				<div class="col-md-3 footer-copy-grid">
+          <div class="container">
+			<p>© 2017 Scriviamoci qualcosa. All rights reserved | Andrea Giulia</p>
+		</div>
+  </div>
+</div>
+</div>
+</div>
 </body>
+
 </html>
