@@ -68,7 +68,7 @@
   					<div class="clearfix"> </div>
   				</div>
   				<div class="logo animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-  					<h1><a href=""><span>Benvenuto</span>Inserisci Nuova Opera</a></h1>
+  					<h1><a href="/inserisciOpera"><span>Benvenuto</span>Inserisci Nuova Opera</a></h1>
   				</div>
           <div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
 
@@ -91,29 +91,33 @@
         <form action="#" th:action="@{/opera}" th:object="${opera}" method="post">
                 <div>
                     <div>
-                        <h3><span th:text="#{label.titolo}">Titolo*: </span></h3>
+                        <h3><label for="inputTitolo" id="label-form">Titolo*: </label></h3>
                         <span><input type="text" th:field="*{titolo}" /></span>
                         <span th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
                     </div>
                     <div>
-                        <h3><span th:text="#{label.anno}">Anno*: </span></h3>
+                        <h3><label for="inputAnno" id="label-form"> Anno*: </label></h3>
                         <span><input type="text" th:field="*{anno}" placeholder="1900" /></span>
                         <span th:if="${#fields.hasErrors('anno')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
                     </div>
                     <div>
-                        <h3><span th:text="#{label.tecnica}">Tecnica*: </span></h3>
+                        <h3><label for="inputTecnica" id="label-form"> Tecnica*: </label></h3>
                         <span><input type="text" th:field="*{tecnica}" /></span>
-                        <span th:if="${#fields.hasErrors('tecnica')}" th:text="#{label.tecnica}">Campo Obbligatorio</span>
+                        <span th:if="${#fields.hasErrors('tecnica')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
                     </div>
                     <div>
-                        <h3><span th:text="#{label.dimensione}">Dimensione*: </span></h3>
+                        <h3><label for="inputDimensione" id="label-form">Dimensione*: </label></h3>
                         <span><input type="text" th:field="*{dimensione}" /></span>
-                        <span th:if="${#fields.hasErrors('dimensione')}" th:text="#{label.dimensione}">Campo Obbligatorio</span>
+                        <span  th:if="${#fields.hasErrors('dimensione')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
                     </div>
                     <div>
-                        <h3><span th:text="#{label.autore}">Autore*: </span></h3>
-                        <span><input type="text" th:field="*{autore}" /></span>
-                        <span th:if="${#fields.hasErrors('autore')}" th:text="#{label.autore}">Campo Obbligatorio</span>
+                        <label for="sel1">Seleziona autore (select one):</label>
+      			<select class="form-control" name = "autoreId">
+	
+				<option th:each="autore : ${autori}" 
+						th:value="${autore.id}"
+						th:text="${autore.nome} +' '+ ${autore.cognome} "/>
+				</select>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn"><span>Aggiungi</span></button>

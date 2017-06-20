@@ -27,10 +27,9 @@ public class Opera {
 		
 	}
 	
-	public Opera(String titolo, Integer anno, Autore autore, String dimensione,String tecnica){
+	public Opera(String titolo, Integer anno, String dimensione,String tecnica){
 		this.titolo = titolo;
 		this.anno = anno;
-		this.autore = autore;
 		this.dimensione = dimensione;
 		this.tecnica = tecnica;
 	}

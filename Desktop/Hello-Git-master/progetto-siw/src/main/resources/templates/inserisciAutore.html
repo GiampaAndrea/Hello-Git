@@ -91,29 +91,29 @@
     <form action="#" th:action="@{/autore}" th:object="${autore}" method="post">
             <div>
                 <div>
-                    <span th:text="#{label.nome}"><h3>Nome*: </h3></span>
+                    <h3><label for="inputNome" id="label-form">Nome*: </label></h3>
                     <span><input type="text" th:field="*{nome}" /></span>
                     <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
                 </div>
                 <div>
-                    <span th:text="#{label.cognome}"><h3>Cognome*: </h3></span>
+                   <h3><label for="inputCognome" id="label-form">Cognome*: </label></h3>
                     <span><input type="text" th:field="*{cognome}" /></span>
                     <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Campo Obbligatorio</span>
                 </div>
                 <div>
-                    <span th:text="#{label.nazionalità}"><h3>Nazionalità*: </h3></span>
-                    <span><input type="text" th:field="*{nazionalità}" /></span>
-                    <span th:if="${#fields.hasErrors('nazionalità')}" th:text="#{label.nazionalità}">Campo Obbligatorio</span>
+                    <h3><label for="inputNazionalita" id="label-form">Nazionalità*: </label></h3>
+                    <span><input type="text" th:field="*{nazionalita}" /></span>
+                    <span th:if="${#fields.hasErrors('nazionalita')}" th:text="#{label.nazionalita}">Campo Obbligatorio</span>
                 </div>
                 <div>
-                    <span th:text="#{label.dataNascita}"><h3>Data Nascita*: </h3></span>
-                    <span><input type="text" th:field="*{dataNascita}" placeholder="01/01/1900" /></span>
-                    <span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.dataNascita}">Campo Obbligatorio</span>
+                    <h3><label for="inputDataNascita" id="label-form">Anno Nascita*: </label></h3>
+                    <span><input type="text" th:field="*{dataNascita}" placeholder="1900" /></span>
+                    <span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.date}">Campo Obbligatorio</span>
                 </div>
                 <div>
-                    <span th:text="#{label.dataMorte}"><h3>Data Morte: </h3></span>
-                    <span><input type="text" th:field="*{dataMorte}" placeholder="01/01/1900"/></span>
-                    <span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.dataMorte}"></span>
+                    <h3><label for="inputDataMorte" id="label-form">Anno Morte*: </label></h3>
+                    <span><input type="text" th:field="*{dataMorte}" placeholder="1900"/></span>
+                    <span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.date}"></span>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn"><span>Aggiungi</span></button>

@@ -1,11 +1,11 @@
 package it.uniroma3.siw.model;
 
 import java.util.ArrayList;
-import java.util.Date;
+
+
 import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -24,23 +24,23 @@ public class Autore {
 	private String nazionalita;
 	
 	@NotNull
-	@Temporal(TemporalType.DATE)
-	private Date dataNascita;
+	private Integer dataNascita;
 	
-	@Temporal(TemporalType.DATE)
-	@Future
-	private Date dataMorte;
+	
+	private Integer dataMorte;
 	
 	 @OneToMany(mappedBy = "autore")
 	 List<Opera> opere;
 	 
 	 public Autore(){
-		 
+		 this.opere=new ArrayList<>();
 	 }
-	 public Autore(String nome,String cognome){
+	 public Autore(String nome,String cognome, String nazionalita, Integer dataNascita,Integer dataMorte){
 		 this.nome=nome;
 		 this.cognome=cognome;
-		 this.opere= new ArrayList<>();
+		 this.nazionalita=nazionalita;
+		 this.dataMorte=dataMorte;
+		 this.dataNascita=dataNascita;
 		 
 	 }
 	
@@ -76,19 +76,19 @@ public class Autore {
 		this.nazionalita = nazionalita;
 	}
 	
-	public Date getDataNascita() {
+	public Integer getDataNascita() {
 		return dataNascita;
 	}
 	
-	public void setDataNascita(Date dataNascita) {
+	public void setDataNascita(Integer dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 	
-	public Date getDataMorte() {
+	public Integer getDataMorte() {
 		return dataMorte;
 	}
 	
-	public void setDataMorte(Date dataMorte) {
+	public void setDataMorte(Integer dataMorte) {
 		this.dataMorte = dataMorte;
 	}
 

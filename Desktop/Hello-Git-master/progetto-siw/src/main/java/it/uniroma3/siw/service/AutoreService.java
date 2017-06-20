@@ -18,8 +18,8 @@ public class AutoreService {
 	AutoreRepository autoreRepository;
 	
 	@Transactional
-	public Autore addAutore(final Autore autore){
-		return this.autoreRepository.save(autore);
+	public void addAutore(final Autore autore){
+		 this.autoreRepository.save(autore);
 	}
 	
 	public Iterable<Autore> findAll(){
