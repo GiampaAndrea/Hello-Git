@@ -21,8 +21,8 @@ public class OperaService {
 	}
 	
 	
-	public void deleteOpera(Long id){
-		this.operaRepository.delete(id);
+	public void deleteOpera(Opera opera){
+		this.operaRepository.delete(opera);
 	}
 	
 	public Iterable<Opera> findAll(){

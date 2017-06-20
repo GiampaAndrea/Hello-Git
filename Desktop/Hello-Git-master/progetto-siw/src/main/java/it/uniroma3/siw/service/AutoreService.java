@@ -1,5 +1,7 @@
 package it.uniroma3.siw.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 
@@ -28,6 +30,18 @@ public class AutoreService {
 	
 	public Autore findOne(Long id){
 		return this.autoreRepository.findOne(id);
+	}
+	
+	public void elimina(Autore autore){
+		autoreRepository.delete(autore);
+	}
+
+	public List<Autore> fingByCognome(String cognome){
+		return this.autoreRepository.findByCognome(cognome);			
+	}
+	
+	public List<Autore> fingByNazionalita(String nazionalita){
+		return this.autoreRepository.findByNazionalita(nazionalita);			
 	}
 
 }

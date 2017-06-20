@@ -1,6 +1,6 @@
 package it.uniroma3.siw.repository;
 
-import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -13,7 +13,9 @@ public interface AutoreRepository extends CrudRepository<Autore, Long>{
 	
 	List<Autore> findByCognome(String cognome);
 	
-	List<Autore> findByDataNascita(Date dataNascita);
+	List<Autore> findByDataNascita(Integer dataNascita);
+	
+	List<Autore> findByNazionalita(String nazionalita);
 
 	
 	

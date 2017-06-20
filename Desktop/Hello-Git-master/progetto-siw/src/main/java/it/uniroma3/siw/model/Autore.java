@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Autore {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@NotNull
@@ -20,19 +20,19 @@ public class Autore {
 	
 	@NotNull
 	private String cognome;
-	
+	@NotNull
 	private String nazionalita;
 	
 	@NotNull
 	private Integer dataNascita;
 	
-	
+	@NotNull
 	private Integer dataMorte;
 	
-	 @OneToMany(mappedBy = "autore")
+	 @OneToMany(mappedBy = "autore", cascade=CascadeType.REMOVE)
 	 List<Opera> opere;
 	 
-	 public Autore(){
+	 protected Autore(){
 		 this.opere=new ArrayList<>();
 	 }
 	 public Autore(String nome,String cognome, String nazionalita, Integer dataNascita,Integer dataMorte){

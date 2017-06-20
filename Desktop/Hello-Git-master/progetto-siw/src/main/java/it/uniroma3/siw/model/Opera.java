@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 public class Opera {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@NotNull
@@ -23,7 +23,7 @@ public class Opera {
 	@ManyToOne
 	private Autore autore;
 	
-	public Opera() {
+	protected Opera() {
 		
 	}
 	

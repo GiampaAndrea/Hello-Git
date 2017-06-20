@@ -2,6 +2,7 @@ package it.uniroma3.siw.controller;
 
 import java.util.List;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Autore;
@@ -19,6 +22,7 @@ import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.repository.OperaRepository;
 import it.uniroma3.siw.service.AutoreService;
 import it.uniroma3.siw.service.OperaService;
+
 
 @Controller
 public class OperaController {
@@ -36,8 +40,10 @@ public class OperaController {
 		if(autori.size()==0) {
 			model.addAttribute("NoAutori","Non ci sono autori nel database, inseriscine uno");
             return "inserisciAutore";
+		} else {
+			model.addAttribute("autori",autori);
+			return "inserisciOpera";
 		}
-	return "inserisciOpera";
 	}
 	
 	@PostMapping("/opera")
@@ -46,12 +52,24 @@ public class OperaController {
 		
 		if(bindingResult.hasErrors()){
 			model.addAttribute("autori",autoreService.findAll());
+			return "inserisciOpera";
 		} else {
 			model.addAttribute(opera);
+			opera.setAutore(autoreService.findOne(id));
 			operaService.addOpera(opera);
+			return "risultatoOpera";
 		}
-		return "risultatoOpera";
+		
 	}
+	
+	@RequestMapping(value="/eliminaopera", method = RequestMethod.GET)
+	public String eliminaQuadro(@RequestParam("id") Long id, Model model) {
+		Opera opera= operaService.findOne(id);
+		operaService.deleteOpera(opera);
+		model.addAttribute("quadri",operaService.findAll());
+		return "listaOpere";
+	}
+	
 	
 
 	@GetMapping("/h")
@@ -66,7 +84,7 @@ public class OperaController {
 		return "operaByTitolo";
 	}
 	
-	@GetMapping("/y")
+	@GetMapping("/listaOpere")
 	public String getAllOpere(Model model){
 		model.addAttribute("opere", this.operaService.findAll());
 		return "listaOpere";

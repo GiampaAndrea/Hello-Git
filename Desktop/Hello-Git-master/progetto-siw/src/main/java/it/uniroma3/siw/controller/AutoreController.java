@@ -3,7 +3,11 @@ package it.uniroma3.siw.controller;
 
 
 
+
+
 import javax.validation.Valid;
+
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,23 +54,18 @@ public class AutoreController {
         autoreRepository.save(autore);
         return "risultatoAutore";
     }
-
-	@GetMapping("/w")
-	public String getOneAutore(@PathVariable("id") Long id, Model model){
-		model.addAttribute("autore", this.autoreService.findOne(id));
-		return "inserisciAutore";
-	}
-
-	@GetMapping("/b")
-	public String getAutoriByNome(String nome, Model model){
-		model.addAttribute("autoriByNome", this.autoreRepository.findByNome(nome));
-		return "autoriByNome";
-	}
 	
 
 	@GetMapping("/listaAutore")
 	public String getAllAutori(Model model){
 		model.addAttribute("autori", this.autoreService.findAll());
+		return "listaAutore";
+	}
+	@RequestMapping(value="/eliminaautore", method = RequestMethod.GET)
+	public String eliminaAutore(@RequestParam("id") Long id, Model model) {
+		Autore autore= autoreService.findOne(id);
+		autoreService.elimina(autore);
+		model.addAttribute("autori",autoreService.findAll());
 		return "listaAutore";
 	}
 	
